@@ -1,9 +1,10 @@
-const { getCPUUsage, getCPUFreq, getCPUFanRPM } = require('./library');
+const { dynamic } = require('./library');
 
 const handlerMap = {
-  'CPU.Usage': getCPUUsage,
-  'CPU.Freq': getCPUFreq,
-  'CPU.FanRPM': getCPUFanRPM,
+  'CPU.Usage': dynamic.getCPUUsage,
+  'CPU.Freq': dynamic.getCPUFreq,
+  'CPU.FanRPM': dynamic.getCPUFanRPM,
+  'MEM.Usage': dynamic.getMEMUsage,
 };
 
 function iCAP_ClientService(data, dataType) {

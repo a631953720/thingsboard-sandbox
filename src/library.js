@@ -29,8 +29,21 @@ function getCPUFanRPM(data) {
   }
 }
 
+function getMEMUsage(data) {
+  try {
+    const parse = JSON.parse(data);
+    return parse.MEM.Usage;
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
+}
+
 module.exports = {
-  getCPUUsage,
-  getCPUFreq,
-  getCPUFanRPM
+  dynamic: {
+    getCPUUsage,
+    getCPUFreq,
+    getCPUFanRPM,
+    getMEMUsage,
+  },
 };
