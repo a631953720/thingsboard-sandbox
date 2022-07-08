@@ -13,6 +13,7 @@ function reqOnEnd({ req, res, data }) {
     res.end(
       JSON.stringify({
         originData: data,
+        dataPath,
         result: result,
       })
     );
