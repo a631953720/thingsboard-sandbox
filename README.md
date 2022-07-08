@@ -1,10 +1,10 @@
 # Quick access
-- [How about this project](https://github.com/a631953720/thingsboard-sendbox/main/README.md#how-about-this-project)
-- [How to use](https://github.com/a631953720/thingsboard-sendbox/main/README.md#how-to-use)
-- [API](https://github.com/a631953720/thingsboard-sendbox/main/README.md#api----post-httphostportdevice)
-- [Project config -- config.json](https://github.com/a631953720/thingsboard-sendbox/main/README.md#project-config----configjson)
-- [Create a webhook with thingsboard](https://github.com/a631953720/thingsboard-sendbox/main/README.md#create-a-webhook-with-thingsboard)
-- [Run the demo code to observe how the service parse data](https://github.com/a631953720/thingsboard-sendbox/main/README.md#run-the-demo-code-to-observe-how-the-service-parse-data)
+- [How about this project](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#how-about-this-project)
+- [How to use](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#how-to-use)
+- [API](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#api----post-httphostportdevice)
+- [Project config -- config.json](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#project-config----configjson)
+- [Create a webhook with thingsboard](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#create-a-webhook-with-thingsboard)
+- [Run the demo code to observe how the service parse data](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#run-the-demo-code-to-observe-how-the-service-parse-data)
 
 
 # thingsboard-sendbox
@@ -18,6 +18,7 @@ this is a simple service that can listen the request and response result
 2. can recieve a data input and parse data by the header given
 3. can dynamic add, delete and change data parse rule by the json file
 4. can use the thingsboard `API Calls rule node` to create a webhook to handle data
+5. don't have other library
 
 # How to use
 ## 1. Set json config (you can use this config for test)
@@ -25,8 +26,10 @@ this is a simple service that can listen the request and response result
 {
   "server": {
     "port": 8000,
-    "host": "127.0.0.1",
-    "debug": true
+    "dev_host": "127.0.0.1",
+    "product_host": "0.0.0.0",
+    "debug": true,
+    "production": false
   },
   "device": {
     "device_type_A": {
@@ -91,8 +94,10 @@ curl --location --request POST 'http://127.0.0.1:8000/device' \
 {
   "server": {
     "port": 8000,
-    "host": "127.0.0.1",
-    "debug": true
+    "dev_host": "127.0.0.1",
+    "product_host": "0.0.0.0",
+    "debug": true,
+    "production": false
   },
   "device": {
     "device_type_A": {
@@ -111,10 +116,15 @@ curl --location --request POST 'http://127.0.0.1:8000/device' \
 ## config -- `server`
 - port 
   - server port
-- host
-  - server host
+- dev_host
+  - server listen host during dev mode
+- product_host
+  - server listen host during production mode
 - debug
   - can print some debug log
+- production
+  - if this attribute is `true`, the service will listen the `product_host`
+  - otherwise the service listen the `dev_host`
 
 ## config -- `device`
 ### layer 1 -- `device type` (in this sample at `device_type_A & device_type_B`)
@@ -157,3 +167,39 @@ Another `devicetype` can tell the service current data is send by some device ty
 - there are some files in `demo` folder
 - the demo folder has isolated environment to run the core process
 - you can change the `demo/config.demo.json` and run `npm run demo` to observe how the service parse data
+
+# How to Deploy (Linux & Docker)
+
+## 1. Set `config.json`
+```js
+  "server": {
+    "port": 8000,
+    "dev_host": "127.0.0.1",
+    "product_host": "0.0.0.0",
+    "debug": true,
+    "production": true // if true, the service will listen `product_host`
+  },
+  // other setting...
+```
+
+## 2. Deploy 
+### a. npm script
+```
+sudo npm run project-deploy
+```
+### b. Deploy by command line
+```
+cd release
+sudo ./build.sh
+sudo ./deploy.sh
+```
+
+## 3. check container is running
+```
+sudo docker ps | grep thingsboard-sendbox
+```
+you can see the container is runninng like as follow.
+![image](https://user-images.githubusercontent.com/51738970/178057363-1351be0d-16a9-460a-a8dd-57ab86c0653b.png)
+
+## 4. API test
+you can reference [Test the API can parse data](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#4-test-the-api-can-parse-data)
