@@ -34,7 +34,7 @@ function PostRouter(req, res) {
       body += data;
     });
 
-    return req.on('end', () => {
+    req.on('end', () => {
       reqOnEnd({ req, res, data: body });
     });
   } catch (error) {

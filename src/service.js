@@ -1,9 +1,14 @@
 function deviceService({ data, dataPath, deviceType, pathMap }) {
-  const runner = pathMap[deviceType][dataPath];
-  if (runner && typeof runner === 'function') {
-    return runner(data);
+  try {
+    const runner = pathMap[deviceType][dataPath];
+    if (runner && typeof runner === 'function') {
+      return runner(data);
+    }
+    console.error('can not find the data handler', `path: ${dataPath}`);
+  } catch (error) {
+    console.error(error);
+    return;
   }
-  console.error('can not find the data handler', `path: ${dataPath}`);
 }
 
 module.exports = {
