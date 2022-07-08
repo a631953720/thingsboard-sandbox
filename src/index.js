@@ -1,7 +1,7 @@
 const http = require('http');
 const { getCPUUsage } = require('./library');
 
-const host = '192.168.50.165';
+const host = '10.204.16.106';
 const port = 8000;
 
 const requestListener = function (req, res) {
