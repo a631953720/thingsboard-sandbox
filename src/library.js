@@ -1,44 +1,3 @@
-// dynamic data
-function getCPUUsage(data) {
-  try {
-    const parse = JSON.parse(data);
-    return parse.CPU.Usage;
-  } catch (error) {
-    console.error(error);
-    return undefined;
-  }
-}
-
-function getCPUFreq(data) {
-  try {
-    const parse = JSON.parse(data);
-    return parse.CPU.Freq;
-  } catch (error) {
-    console.error(error);
-    return undefined;
-  }
-}
-
-function getCPUFanRPM(data) {
-  try {
-    const parse = JSON.parse(data);
-    return parse.CPU.FanRPM;
-  } catch (error) {
-    console.error(error);
-    return undefined;
-  }
-}
-
-function getMEMUsage(data) {
-  try {
-    const parse = JSON.parse(data);
-    return parse.MEM.Usage;
-  } catch (error) {
-    console.error(error);
-    return undefined;
-  }
-}
-
 function normalCallback(path) {
   return (data) => {
     try {
@@ -49,6 +8,11 @@ function normalCallback(path) {
       while (keys.length > 0) {
         const key = keys.shift();
         tempData = tempData[key];
+        if (Array.isArray(tempData)) {
+          console.error('can not handle array data now', tempData);
+          tempData = undefined;
+          break;
+        }
       }
 
       return tempData;
