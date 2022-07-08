@@ -7,7 +7,7 @@ const routerMap = {
 function reqOnEnd({ req, res, service, body }) {
   const dataPath = req.headers?.datapath;
   const result = service(body, dataPath);
-  console.log('dataPath', dataPath, 'result', result);
+  debugLog('dataPath', dataPath, 'result', result);
   if (result) {
     res.writeHead(200);
     res.end(JSON.stringify(result));

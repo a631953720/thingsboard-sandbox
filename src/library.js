@@ -1,3 +1,4 @@
+const { debugLog } = require('./utils');
 const { deviceConfigs } = require('./env');
 
 // dynamic data
@@ -62,7 +63,7 @@ function normalCallback(path) {
 }
 
 function loadConfigFile(config) {
-  console.log(config);
+  debugLog(config);
   const deviceTypes = Object.keys(config);
 
   const handlerMap = {};
@@ -87,7 +88,7 @@ function loadConfigFile(config) {
     });
   });
 
-  console.log({ handlerMap, pathMap });
+  debugLog({ handlerMap, pathMap });
   return {
     handlerMap,
     pathMap,

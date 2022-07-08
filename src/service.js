@@ -1,4 +1,5 @@
 const { pathMap } = require('./library');
+const { debugLog } = require('./utils');
 const { iCAP_ClientMockDynamicData, iCAP_ClientPathList, sysInnoMockData, sysInnoPathList } = require('./mock');
 
 function iCAP_ClientService(data, dataPath, deviceType) {
@@ -11,12 +12,12 @@ function iCAP_ClientService(data, dataPath, deviceType) {
 
 iCAP_ClientPathList.forEach((path) => {
   const result = iCAP_ClientService(iCAP_ClientMockDynamicData(), path, 'iCAP_Client');
-  console.log(result);
+  debugLog(result);
 });
 
 sysInnoPathList.forEach((path) => {
   const result = iCAP_ClientService(sysInnoMockData(), path, 'sysInno');
-  console.log(result);
+  debugLog(result);
 });
 
 module.exports = {
