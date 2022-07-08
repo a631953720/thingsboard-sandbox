@@ -10,7 +10,12 @@ function reqOnEnd({ req, res, data }) {
   debugLog('dataPath', dataPath, 'result', result);
   if (result) {
     res.writeHead(200);
-    res.end(JSON.stringify(result));
+    res.end(
+      JSON.stringify({
+        originData: data,
+        result: result,
+      })
+    );
   } else {
     res.writeHead(500);
     res.end(
