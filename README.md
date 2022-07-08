@@ -1,11 +1,11 @@
 # Quick access
-- [How about this project](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#how-about-this-project)
-- [How to use](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#how-to-use)
-- [API](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#api----post-httphostportdevice)
-- [Project config -- config.json](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#project-config----configjson)
-- [Create a webhook with thingsboard](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#create-a-webhook-with-thingsboard)
-- [Run the demo code to observe how the service parse data](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#run-the-demo-code-to-observe-how-the-service-parse-data)
-- [How to Deploy (Linux & Docker)](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#how-to-deploy-linux--docker)
+- [How about this project](#how-about-this-project)
+- [How to use](#how-to-use)
+- [API](#api----post-httphostportdevice)
+- [Project config -- config.json](#project-config----configjson)
+- [Create a webhook with thingsboard](#create-a-webhook-with-thingsboard)
+- [Run the demo code to observe how the service parse data](#run-the-demo-code-to-observe-how-the-service-parse-data)
+- [How to Deploy (Linux & Docker)](#how-to-deploy-linux--docker)
 
 # thingsboard-sendbox
 this is a simple service that can listen the request and response result
