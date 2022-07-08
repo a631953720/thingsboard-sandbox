@@ -1,0 +1,18 @@
+{
+  "getCPUUsage": {
+    "path": "CPU.Usage",
+    "isArray": false
+  },
+  "getCPUFreq": {
+    "path": "CPU.Freq",
+    "isArray": false
+  },
+  "getCPUFanRPM": {
+    "path": "CPU.FanRPM",
+    "isArray": false
+  },
+  "getMEMUsage": {
+    "path": "MEM.Usage",
+    "isArray": false
+  }
+}

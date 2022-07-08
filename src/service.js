@@ -1,18 +1,11 @@
-const { dynamic } = require('./library');
+const { pathMap } = require('./library');
 
-const handlerMap = {
-  'CPU.Usage': dynamic.getCPUUsage,
-  'CPU.Freq': dynamic.getCPUFreq,
-  'CPU.FanRPM': dynamic.getCPUFanRPM,
-  'MEM.Usage': dynamic.getMEMUsage,
-};
-
-function iCAP_ClientService(data, dataType) {
-  const runner = handlerMap[dataType];
+function iCAP_ClientService(data, dataPath) {
+  const runner = pathMap[dataPath];
   if (runner && typeof runner === 'function') {
     return runner(data);
   }
-  console.error('can not find the data handler', `path: ${dataType}`);
+  console.error('can not find the data handler', `path: ${dataPath}`);
 }
 
 module.exports = {
