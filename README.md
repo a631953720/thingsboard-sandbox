@@ -133,7 +133,7 @@ curl --location --request POST 'http://127.0.0.1:8000/device' \
 
 ### layer 2 -- `function name` (in this sample at `get_cpu_loading & get_mem_loading`)
 - you can set the function name
-- the service don't care the name of function
+- the service **don't care** the name of function
 
 ### layer 3 -- `data path`
 - you can use it to tell the service how to get some value
