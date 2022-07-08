@@ -7,8 +7,8 @@
     "start": "node src/index.js",
     "demo": "node src/demo/index.js",
     "project-build": "cd release && ./build.sh",
-    "preproject-run": "npm run project-build",
-    "project-run": "cd release && ./deploy.sh"
+    "preproject-deploy": "npm run project-build",
+    "project-deploy": "cd release && ./deploy.sh"
   },
   "keywords": [],
   "author": "",
