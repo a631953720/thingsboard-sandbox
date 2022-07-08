@@ -1,6 +1,3 @@
-const { debugLog } = require('./utils');
-const { deviceConfigs } = require('./constant/env');
-
 // dynamic data
 function getCPUUsage(data) {
   try {
@@ -63,7 +60,6 @@ function normalCallback(path) {
 }
 
 function loadConfigFile(config) {
-  debugLog(config);
   const deviceTypes = Object.keys(config);
 
   const handlerMap = {};
@@ -88,11 +84,12 @@ function loadConfigFile(config) {
     });
   });
 
-  debugLog({ handlerMap, pathMap });
   return {
     handlerMap,
     pathMap,
   };
 }
 
-module.exports = loadConfigFile(deviceConfigs);
+module.exports = {
+  loadConfigFile,
+};

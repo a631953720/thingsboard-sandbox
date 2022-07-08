@@ -1,12 +1,12 @@
+const { debugLog } = require('./utils');
 const { deviceService } = require('./service');
+const { pathMap } = require('./constant/env');
 
-const routerMap = {
-  '/device': deviceService,
-};
-
-function reqOnEnd({ req, res, service, body }) {
+function reqOnEnd({ req, res, data }) {
   const dataPath = req.headers?.datapath;
-  const result = service(body, dataPath);
+  const deviceType = req.headers?.devicetype;
+
+  const result = deviceService({ data, dataPath, deviceType, pathMap });
   debugLog('dataPath', dataPath, 'result', result);
   if (result) {
     res.writeHead(200);
@@ -15,31 +15,31 @@ function reqOnEnd({ req, res, service, body }) {
     res.writeHead(500);
     res.end(
       JSON.stringify({
-        errorCode: 1,
+        message: 'parse device data error',
       })
     );
   }
 }
 
 function PostRouter(req, res) {
-  let body = '';
-  req.on('data', function (data) {
-    body += data;
-  });
-
-  const service = routerMap[req.url];
-  if (service && typeof service === 'function') {
-    return req.on('end', () => {
-      reqOnEnd({ req, res, service, body });
+  try {
+    let body = '';
+    req.on('data', function (data) {
+      body += data;
     });
+
+    return req.on('end', () => {
+      reqOnEnd({ req, res, data: body });
+    });
+  } catch (error) {
+    console.error(error);
+    res.writeHead(500);
+    res.end(
+      JSON.stringify({
+        message: 'unknown error',
+      })
+    );
   }
-  console.error('can not find the service', `url: ${req.url}`);
-  res.writeHead(500);
-  res.end(
-    JSON.stringify({
-      errorCode: 2,
-    })
-  );
 }
 
 module.exports = {
