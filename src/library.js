@@ -1,4 +1,4 @@
-const configs = require('../config.json');
+const { deviceConfigs } = require('./env');
 
 // dynamic data
 function getCPUUsage(data) {
@@ -94,4 +94,4 @@ function loadConfigFile(config) {
   };
 }
 
-module.exports = loadConfigFile(configs);
+module.exports = loadConfigFile(deviceConfigs);

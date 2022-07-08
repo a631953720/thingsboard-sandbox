@@ -1,8 +1,8 @@
 const http = require('http');
+const { server } = require('./env');
 const { PostRouter } = require('./router');
 
-const host = '10.204.16.106';
-const port = 8000;
+const { host, port } = server;
 
 const requestListener = function (req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -14,8 +14,8 @@ const requestListener = function (req, res) {
   }
 };
 
-const server = http.createServer(requestListener);
+const httpServer = http.createServer(requestListener);
 
-server.listen(port, host, () => {
+httpServer.listen(port, host, () => {
   console.log(`Server is running on http://${host}:${port}`);
 });

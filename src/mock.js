@@ -1,4 +1,4 @@
-const configs = require('../config.json');
+const { deviceConfigs } = require('./env');
 
 function iCAP_ClientMockDynamicData() {
   return JSON.stringify({
@@ -238,12 +238,13 @@ function sysInnoMockData() {
   });
 }
 
-const iCAP_ClientPathList = Object.values(configs.iCAP_Client).map((v) => v.path);
-const sysInnoPathList = Object.values(configs.sysInno).map((v) => v.path);
+// only for test
+const iCAP_ClientPathList = Object.values(deviceConfigs.iCAP_Client).map((v) => v.path);
+const sysInnoPathList = Object.values(deviceConfigs.sysInno).map((v) => v.path);
 
 module.exports = {
   iCAP_ClientMockDynamicData,
   iCAP_ClientPathList,
   sysInnoMockData,
-  sysInnoPathList
+  sysInnoPathList,
 };
