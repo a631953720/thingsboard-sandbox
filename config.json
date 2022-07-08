@@ -5,7 +5,7 @@
     "debug": true
   },
   "device": {
-    "iCAP_Client": {
+    "ggg": {
       "getCPUUsage": {
         "path": "CPU.Usage"
       },
@@ -26,11 +26,6 @@
       },
       "test2": {
         "path": "CPU.0.Usage"
-      }
-    },
-    "sysInno": {
-      "test": {
-        "path": "in"
       }
     }
   }
