@@ -4,5 +4,20 @@
     "host": "127.0.0.1",
     "debug": true
   },
-  "device": {}
+  "device": {
+    "device_type_A": {
+      "get_cpu_loading": {
+        "path": "CPU.loading"
+      },
+      "get_mem_loading": {
+        "path": "MEM.loading"
+      },
+      "get_two": {
+        "path": "Value.one.two"
+      },
+      "get_deep_value": {
+        "path": "Value.one.two.three"
+      }
+    }
+  }
 }
