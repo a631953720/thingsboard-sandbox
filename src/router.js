@@ -1,7 +1,7 @@
-const { iCAP_ClientService } = require('./service');
+const { deviceService } = require('./service');
 
 const routerMap = {
-  '/iCAP-Client': iCAP_ClientService,
+  '/device': deviceService,
 };
 
 function reqOnEnd({ req, res, service, body }) {

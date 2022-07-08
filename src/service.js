@@ -2,7 +2,7 @@ const { pathMap } = require('./library');
 const { debugLog } = require('./utils');
 const { iCAP_ClientMockDynamicData, iCAP_ClientPathList, sysInnoMockData, sysInnoPathList } = require('./mock');
 
-function iCAP_ClientService(data, dataPath, deviceType) {
+function deviceService(data, dataPath, deviceType) {
   const runner = pathMap[deviceType][dataPath];
   if (runner && typeof runner === 'function') {
     return runner(data);
@@ -10,16 +10,17 @@ function iCAP_ClientService(data, dataPath, deviceType) {
   console.error('can not find the data handler', `path: ${dataPath}`);
 }
 
+// only for test
 iCAP_ClientPathList.forEach((path) => {
-  const result = iCAP_ClientService(iCAP_ClientMockDynamicData(), path, 'iCAP_Client');
+  const result = deviceService(iCAP_ClientMockDynamicData(), path, 'iCAP_Client');
   debugLog(result);
 });
 
 sysInnoPathList.forEach((path) => {
-  const result = iCAP_ClientService(sysInnoMockData(), path, 'sysInno');
+  const result = deviceService(sysInnoMockData(), path, 'sysInno');
   debugLog(result);
 });
 
 module.exports = {
-  iCAP_ClientService,
+  deviceService,
 };
