@@ -46,5 +46,5 @@ function find_json_value() {
       break
     fi
   done < $1
-  echo REAULT
+  echo $REAULT
 }
