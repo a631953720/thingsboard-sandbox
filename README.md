@@ -1,10 +1,10 @@
 # Quick access
-- [How about this project](https://github.com/a631953720/thingsboard-sendbox/edit/main/README.md#how-about-this-project)
-- [How to use](https://github.com/a631953720/thingsboard-sendbox/edit/main/README.md#how-to-use)
-- [API](https://github.com/a631953720/thingsboard-sendbox/edit/main/README.md#api----post-httphostportdevice)
-- [Project config -- config.json](https://github.com/a631953720/thingsboard-sendbox/edit/main/README.md#project-config----configjson)
-- [Create a webhook with thingsboard](https://github.com/a631953720/thingsboard-sendbox/edit/main/README.md#create-a-webhook-with-thingsboard)
-- [Run the demo code to observe how the service parse data](https://github.com/a631953720/thingsboard-sendbox/edit/main/README.md#run-the-demo-code-to-observe-how-the-service-parse-data)
+- [How about this project](https://github.com/a631953720/thingsboard-sendbox/main/README.md#how-about-this-project)
+- [How to use](https://github.com/a631953720/thingsboard-sendbox/main/README.md#how-to-use)
+- [API](https://github.com/a631953720/thingsboard-sendbox/main/README.md#api----post-httphostportdevice)
+- [Project config -- config.json](https://github.com/a631953720/thingsboard-sendbox/main/README.md#project-config----configjson)
+- [Create a webhook with thingsboard](https://github.com/a631953720/thingsboard-sendbox/main/README.md#create-a-webhook-with-thingsboard)
+- [Run the demo code to observe how the service parse data](https://github.com/a631953720/thingsboard-sendbox/main/README.md#run-the-demo-code-to-observe-how-the-service-parse-data)
 
 
 # thingsboard-sendbox
