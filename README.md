@@ -21,7 +21,7 @@ this is a simple service that can listen the request and response result
 4. can use the thingsboard `API Calls rule node` to create a webhook to handle data
 5. don't have other library
 
-## limit
+## Limit
 1. no queue
 2. can not handle array data now
 
