@@ -1,8 +1,10 @@
 {
   "server": {
     "port": 8000,
-    "host": "127.0.0.1",
-    "debug": true
+    "dev_host": "127.0.0.1",
+    "product_host": "0.0.0.0",
+    "debug": true,
+    "production": true
   },
   "device": {
     "device_type_A": {
