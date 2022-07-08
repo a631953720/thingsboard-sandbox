@@ -1,18 +1,30 @@
 {
-  "getCPUUsage": {
-    "path": "CPU.Usage",
-    "isArray": false
+  "iCAP_Client": {
+    "getCPUUsage": {
+      "path": "CPU.Usage"
+    },
+    "getCPUFreq": {
+      "path": "CPU.Freq"
+    },
+    "getCPUFanRPM": {
+      "path": "CPU.FanRPM"
+    },
+    "getMEMUsage": {
+      "path": "MEM.Usage"
+    },
+    "getGPULoading": {
+      "path": "GPU.Load"
+    },
+    "test": {
+      "path": "GPU.FanTemp"
+    },
+    "test2": {
+      "path": "CPU.0.Usage"
+    }
   },
-  "getCPUFreq": {
-    "path": "CPU.Freq",
-    "isArray": false
-  },
-  "getCPUFanRPM": {
-    "path": "CPU.FanRPM",
-    "isArray": false
-  },
-  "getMEMUsage": {
-    "path": "MEM.Usage",
-    "isArray": false
+  "sysInno": {
+    "test": {
+      "path": "in"
+    }
   }
 }

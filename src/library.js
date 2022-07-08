@@ -63,25 +63,28 @@ function normalCallback(path) {
 
 function loadConfigFile(config) {
   console.log(config);
-  const methods = Object.keys(config);
+  const deviceTypes = Object.keys(config);
 
   const handlerMap = {};
-
-  // 建立handle data的對照表
-  methods.forEach((method) => {
-    const isArray = config[method].isArray;
-    const path = config[method].path;
-    if (isArray === false) {
-      handlerMap[method] = normalCallback(path);
-    }
-  });
-
   const pathMap = {};
+  deviceTypes.forEach((deviceType) => {
+    handlerMap[deviceType] = {};
+    pathMap[deviceType] = {};
 
-  // 建立path對照function的表
-  methods.forEach((method) => {
-    const path = config[method].path;
-    pathMap[path] = handlerMap[method];
+    const methods = Object.keys(config[deviceType]);
+    // 建立handle data的對照表
+    methods.forEach((method) => {
+      const isArray = config[deviceType][method].isArray;
+      const path = config[deviceType][method].path;
+      if (!isArray) {
+        handlerMap[deviceType][method] = normalCallback(path);
+      }
+    });
+    // 建立path對照function的表
+    methods.forEach((method) => {
+      const path = config[deviceType][method].path;
+      pathMap[deviceType][path] = handlerMap[deviceType][method];
+    });
   });
 
   console.log({ handlerMap, pathMap });
