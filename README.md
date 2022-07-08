@@ -14,11 +14,16 @@ this is a simple service that can listen the request and response result
 - node 16.13.0
 
 # How about this project
+## Feature
 1. create a simple service
 2. can recieve a data input and parse data by the header given
 3. can dynamic add, delete and change data parse rule by the json file
 4. can use the thingsboard `API Calls rule node` to create a webhook to handle data
 5. don't have other library
+
+## limit
+1. no queue
+2. can not handle array data now
 
 # How to use
 ## 1. Set json config (you can use this config for test)
@@ -79,7 +84,7 @@ curl --location --request POST 'http://127.0.0.1:8000/device' \
 ## Required header
 - `datapath`
   - can tell the service how to parse data
-  - please use `,` to split if you want to parse data deeper
+  - please use `.` to split if you want to parse data deeper
 
 - `devicetype`
   - can tell the service current data is send by some device type
@@ -146,7 +151,7 @@ curl --location --request POST 'http://127.0.0.1:8000/device' \
       }
     ```
   - if you want to get the "one" value in this structure, you can set the `path` to `data.one`
-  - the `,` can tell the service how path to query the data
+  - the `.` can tell the service how path to query the data
 
 
 # Create a webhook with thingsboard
