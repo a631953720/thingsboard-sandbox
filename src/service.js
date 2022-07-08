@@ -1,6 +1,6 @@
 const { pathMap } = require('./library');
 const { debugLog } = require('./utils');
-const { iCAP_ClientMockDynamicData, iCAP_ClientPathList, sysInnoMockData, sysInnoPathList } = require('./mock');
+const { iCAP_ClientMockDynamicData, iCAP_ClientPathList, sysInnoMockData, sysInnoPathList } = require('./demo/mock');
 
 function deviceService(data, dataPath, deviceType) {
   const runner = pathMap[deviceType][dataPath];

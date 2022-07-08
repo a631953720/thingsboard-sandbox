@@ -1,5 +1,5 @@
 const { debugLog } = require('./utils');
-const { deviceConfigs } = require('./env');
+const { deviceConfigs } = require('./constant/env');
 
 // dynamic data
 function getCPUUsage(data) {

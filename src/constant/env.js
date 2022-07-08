@@ -1,4 +1,4 @@
-const configs = require('../config.json');
+const configs = require('../../config.json');
 
 module.exports = {
   deviceConfigs: configs.device,

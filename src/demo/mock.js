@@ -1,4 +1,4 @@
-const { deviceConfigs } = require('./env');
+const { deviceConfigs } = require('../constant/env');
 
 function iCAP_ClientMockDynamicData() {
   return JSON.stringify({

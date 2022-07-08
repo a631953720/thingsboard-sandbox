@@ -1,5 +1,5 @@
 const http = require('http');
-const { server } = require('./env');
+const { server } = require('./constant/env');
 const { PostRouter } = require('./router');
 
 const { host, port } = server;
