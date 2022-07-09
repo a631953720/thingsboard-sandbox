@@ -208,4 +208,22 @@ you can see the container is runninng like as follow.
 ![image](https://user-images.githubusercontent.com/51738970/178057363-1351be0d-16a9-460a-a8dd-57ab86c0653b.png)
 
 ## 4. API test
-you can reference [Test the API can parse data](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#4-test-the-api-can-parse-data)
+you can reference [Test the API can parse data](#4-test-the-api-can-parse-data)
+
+# Customzied the docker
+## `release/.env` can control all the docker image config
+```env
+# project build
+OUTPUT_FOLDER=output # create folder in root path
+OUTPUT_IMAGE_FILE_NAME=thingsboard-sendbox
+
+# deploy
+DEPLOY_VERSION=v0.2.0-beta
+DEPLOY_PORT=8000
+SERVER_LISTEN=8000 # must equal to the "config.json" at root folder
+
+# docker
+IMAGE_NAME=thingsboard-sendbox
+CONTAINER_NAME=thingsboard-sendbox
+
+```
