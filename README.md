@@ -208,4 +208,4 @@ you can see the container is runninng like as follow.
 ![image](https://user-images.githubusercontent.com/51738970/178057363-1351be0d-16a9-460a-a8dd-57ab86c0653b.png)
 
 ## 4. API test
-you can reference [Test the API can parse data](https://github.com/a631953720/thingsboard-sendbox/blob/main/README.md#4-test-the-api-can-parse-data)
+you can reference [Test the API can parse data](#4-test-the-api-can-parse-data)
