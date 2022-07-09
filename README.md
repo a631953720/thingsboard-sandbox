@@ -209,3 +209,21 @@ you can see the container is runninng like as follow.
 
 ## 4. API test
 you can reference [Test the API can parse data](#4-test-the-api-can-parse-data)
+
+# Customzied the docker
+## `release/.env` can control all the docker image config
+```env
+# project build
+OUTPUT_FOLDER=output # create folder in root path
+OUTPUT_IMAGE_FILE_NAME=thingsboard-sendbox
+
+# deploy
+DEPLOY_VERSION=v1.0.0
+DEPLOY_PORT=8000
+SERVER_LISTEN=8000 # must equal to the "config.json" at root folder
+
+# docker
+IMAGE_NAME=thingsboard-sendbox
+CONTAINER_NAME=thingsboard-sendbox
+
+```
