@@ -33,8 +33,9 @@ function load_dot_env() {
   yellow_printf "------ read env end ------"
 }
 
-# 會逐行讀取取得屬性值，只能取得單純的字串、數字或布林
-# 如果重複，只會回傳第一個找到的值
+# will read the file line by line
+# only can get string, number, and boolean
+# only return the first result
 function find_json_value() {
   while read -r LINE; do
     # can ignore 
@@ -48,6 +49,7 @@ function find_json_value() {
   echo $REAULT
 }
 
+# this function case only for this project situation
 function rewrite_config_file() {
   target_file=$1
   new_file=$2
