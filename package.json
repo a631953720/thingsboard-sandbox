@@ -8,7 +8,8 @@
     "demo": "node src/demo/index.js",
     "project-build": "cd release && ./build.sh",
     "preproject-deploy": "npm run project-build",
-    "project-deploy": "cd release && ./deploy.sh"
+    "project-deploy": "cd release && ./deploy.sh",
+    "drone-deploy": "cd release && ./deploy.sh"
   },
   "keywords": [],
   "author": "",

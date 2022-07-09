@@ -39,7 +39,6 @@ function find_json_value() {
   while read -r LINE; do
     # can ignore 
     if [[ $LINE == *$2* ]]; then
-      # ENV_VAR="$(echo $LINE | envsubst)"
       FIND_VALUE=$LINE
       CUT_VALUE=${FIND_VALUE#*:}
       REAULT=${CUT_VALUE//["$,"]}
@@ -47,4 +46,20 @@ function find_json_value() {
     fi
   done < $1
   echo $REAULT
+}
+
+function rewrite_config_file() {
+  target_file=$1
+  new_file=$2
+  # make sure the file is empty
+  echo '' > $new_file
+  while read -r LINE; do
+    if [[ $LINE == *production* ]];
+    then
+      echo '"production": true' >> $new_file
+    else
+      echo $LINE >> $new_file
+    fi
+
+  done < $target_file
 }

@@ -12,8 +12,8 @@ steps:
 - name: deploy
   commands:
   - cd release
-  - ./build.sh
-  - ./utils.sh
+  - bash ./rewrite_config.sh
+  - bash ./drone_deploy.sh
 
 trigger:
   branch:
